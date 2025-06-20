@@ -1,27 +1,25 @@
-def bubble_sort(unsorted_list):
-    # Find out how many items are in the list
-    n = len(unsorted_list)
-    i = 0  # This will count how many passes we've done
+# Bubble sort function that sorts the list step by step
+def bubble_sort(data):
+    n = len(data)  # Get the number of items in the list
 
-    # Keep looping until we've gone through the list n times
-    while i < n:
-        j = 0  # Start comparing from the beginning of the list
+    # Loop through the list multiple times
+    for i in range(n):
 
-        # Go through the list up to the last unsorted item
-        while j < n - i - 1:
-            # If the current item is bigger than the one next to it, swap them
-            if unsorted_list[j] > unsorted_list[j + 1]:
-                unsorted_list[j], unsorted_list[j + 1] = unsorted_list[j + 1], unsorted_list[j]
-            j += 1  # Move to the next pair
+        # Go through the unsorted part of the list
+        for j in range(0, n - i - 1):
 
-        i += 1  # One full pass done, move to the next round
-    return unsorted_list  # Return the list once it's fully sorted
+            # If the current number is bigger than the one next to it, swap them
+            if data[j] > data[j + 1]:
+                data[j], data[j + 1] = data[j + 1], data[j]
 
-# My starting list (not sorted)
-arr = [5, 4, 3, 2, 1, 0]
+    return data  # Give back the sorted list
 
-# Run the bubble sort function
-sorted_arr = bubble_sort(arr)
 
-# Print the sorted list
-print("Sorted list:", sorted_arr)
+# My list that I want to sort
+data = [5, 3, 2, 4, 4, 1]
+
+# Call the function to sort it
+sorted_array = bubble_sort(data)
+
+# Print the sorted version
+print("Sorted array is:", sorted_array)

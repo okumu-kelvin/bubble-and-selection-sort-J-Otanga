@@ -1,20 +1,35 @@
+# Selection sort function that returns a sorted copy of the list
 def selection_sort(arr):
-    n = len(arr)
-    # Go through each item in the list except the last one
-    for i in range(n - 1):
-        min_index = i  # Assume the current item is the smallest
-        # Look through the rest of the list to find something smaller
+    data = arr.copy()  # Make a copy so we don't mess up the original list
+    n = len(data)  # Get how many items are in the list
+
+    # Go through the list one item at a time
+    for i in range(n):
+        min_index = i  # Start by assuming the current item is the smallest
+
+        # Look for something smaller in the rest of the list
         for j in range(i + 1, n):
-            if arr[j] < arr[min_index]:
-                min_index = j  # Found a new smallest number, update min_index
-        # Swap the smallest number found with the one at position i
-        arr[i], arr[min_index] = arr[min_index], arr[i]
+            if data[j] < data[min_index]:
+                min_index = j  # Found something smaller, update min_index
 
-# List of numbers I want to sort
-my_array = [64, 34, 25, 5, 22, 11, 90, 12]
+        # Swap the smallest item found with the one at the current position
+        data[i], data[min_index] = data[min_index], data[i]
 
-# Run my sorting function
-selection_sort(my_array)
+    return data  # Return the new sorted list
 
-# Print the final sorted list
-print("Sorted array:", my_array)
+
+# A list I want to sort
+arr = [4, 3, 5, 1, 2]
+sorted_array = selection_sort(arr)
+print("Sorted array is:", sorted_array)  # Should show the numbers in order
+
+
+# Function to reverse a list
+def reverse_array(arr):
+    return arr[::-1]  # This slices the list from end to start (basically flips it)
+
+
+# A list I want to reverse
+arr = [1, 2, 3, 4, 5]
+reversed_array = reverse_array(arr)
+print("Reversed array is:", reversed_array)  # Should show the list backwards
